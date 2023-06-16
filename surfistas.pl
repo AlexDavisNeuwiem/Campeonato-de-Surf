@@ -52,7 +52,11 @@ todosDiferentes([]).
 todosDiferentes([H|T]) :- not(member(H, T)), todosDiferentes(T).
 
 imprimirSolucao([]).
-imprimirSolucao([H|T]) :- write(H), nl, imprimirSolucao(T).
+imprimirSolucao([surfista(Cor, Nome, Praia, Tamanho, Gentilico, Ranking)|Resto]) :- 
+    length(Resto, Parcial), Numero is 5 - Parcial,
+    write("Surfista "), write(Numero), write(": "), write(Cor), write(", "), write(Nome),
+    write(", "), write(Praia), write(", "), write(Tamanho), write(", "), write(Gentilico),
+    write(", "), write(Ranking), write("."), nl, imprimirSolucao(Resto).
 
 %----------------------------------------------------------------------------------------------------------------------
 
