@@ -1,4 +1,16 @@
-%-- Fatos -------------------------------------------------------------------------------------------------------------
+/*---------------------------------------------------------------------------------------------------------------------
+
+ALUNO: Alex Davis Neuwiem da Silva
+MATRÍCULA: 21202103
+DISCIPLINA: Paradigmas de Programação
+CÓDIGO DA DISCIPLINA: INE5416
+DATA: 21/06/2023
+
+LINK DO VÍDEO DE APRESENTAÇÃO:
+
+---------------------------------------------------------------------------------------------------------------------*/
+
+%-- Fatos obtidos no enunciado do problema ----------------------------------------------------------------------------
 
 cor(amarela).
 cor(azul).
@@ -42,15 +54,20 @@ ranking(8).
 
 %-- Predicados --------------------------------------------------------------------------------------------------------
 
+% Com base no ídice da lista, verifica se X está em qualquer posição à esquerda de Y
 aEsquerda(X, Y, Lista) :- nth0(IndexX, Lista, X), nth0(IndexY, Lista, Y), IndexX < IndexY.
 
+% Chama "aEsquerda()" com os parâmetros invertidos, pois X está à direita de Y se Y está à esquerda de X
 aDireita(X, Y, Lista) :- aEsquerda(Y, X, Lista).
 
+% Utiliza "nextto()" para verificar se X está à ao lado de Y
 aoLado(X, Y, Lista) :- nextto(X, Y, Lista); nextto(Y, X, Lista).
 
+% Uma lista não contém números repetidos se H não ocorre em T e se em T também todos os elementos são diferentes
 todosDiferentes([]).
 todosDiferentes([H|T]) :- not(member(H, T)), todosDiferentes(T).
 
+% Dado uma lista de surfistas como entrada, formata a saída da solução
 imprimirSolucao([]).
 imprimirSolucao([surfista(Cor, Nome, Praia, Tamanho, Gentilico, Ranking)|Resto]) :- 
     length(Resto, Parcial), Numero is 5 - Parcial,
@@ -64,6 +81,7 @@ imprimirSolucao([surfista(Cor, Nome, Praia, Tamanho, Gentilico, Ranking)|Resto])
 
 %-- Lista Solução -----------------------------------------------------------------------------------------------------
 
+% Lista de surfistas que será formatada e impressa no final da solução
 solucao() :-
     ListaSolucao = [surfista(Cor1, Nome1, Praia1, Tamanho1, Gentilico1, Ranking1),
                     surfista(Cor2, Nome2, Praia2, Tamanho2, Gentilico2, Ranking2),
@@ -75,7 +93,7 @@ solucao() :-
 
 
 
-%-- Dicas -------------------------------------------------------------------------------------------------------------
+%-- Dicas do problema -------------------------------------------------------------------------------------------------
 
 % O surfista que está no Quinto lugar do ranking está na quarta posição.
 nth0(3, ListaSolucao, surfista(_, _, _, _, _, 5)),
@@ -149,7 +167,7 @@ aEsquerda(surfista(amarela, _, _, _, _, _), surfista(_, _, itaguare, _, _, _), L
 
 
 
-%-- Possibilidades ----------------------------------------------------------------------------------------------------
+%-- Restringindo as possibilidades para a solução final ---------------------------------------------------------------
 
 cor(Cor1),
 cor(Cor2),
