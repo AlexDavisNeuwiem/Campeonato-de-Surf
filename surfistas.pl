@@ -6,7 +6,7 @@ DISCIPLINA: Paradigmas de Programação
 CÓDIGO DA DISCIPLINA: INE5416
 DATA: 21/06/2023
 
-LINK DO VÍDEO DE APRESENTAÇÃO:
+LINK DO VÍDEO DE APRESENTAÇÃO: https://youtu.be/0tkUc1bTYS8
 
 ---------------------------------------------------------------------------------------------------------------------*/
 
